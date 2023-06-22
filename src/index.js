@@ -6,7 +6,8 @@ const rotas = require("./rotas");
 const app = express();
 
 app.use(express.json());
-app.use(
+app.use(cors());
+/* app.use(
   "/signin",
   createProxyMiddleware({
     target: "https://safecash.cyclic.app",
@@ -16,6 +17,6 @@ app.use(
       "Access-Control-Allow-Origin": "*", // Defina a origem permitida corretamente
     },
   })
-);
+); */
 app.use(rotas);
 app.listen(process.env.PORT || 3334);
