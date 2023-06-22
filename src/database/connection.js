@@ -1,15 +1,13 @@
-const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
+const { PGHOST, PGDATABASE, PGUSER, PGPASSWORD, ENDPOINT_ID } = process.env;
 const knex = require("knex")({
   client: "pg",
   connection: {
-    host: PGHOST,
-    user: PGUSER,
-    password: PGPASSWORD,
-    database: PGDATABASE,
+    host: process.env.PGHOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DATABASE,
 
-    /* ssl: {
-      rejectUnauthorized: false,
-    }, */
+    ssl: "require",
   },
 });
 
