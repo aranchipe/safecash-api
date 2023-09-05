@@ -87,6 +87,7 @@ const attSaved = async (req, res) => {
 
     const monthFound = await knex("guardados")
       .where({ month })
+      .andWhere({user_id: user.id})
       .andWhere("id", "!=", id);
     if (monthFound.length !== 0) {
       return res
